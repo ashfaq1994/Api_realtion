@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class posts extends Model
+class video extends Model
 {
     public function comments()
     {
         return $this->morphMany(comment::class,'commentable');
     }
-
 }

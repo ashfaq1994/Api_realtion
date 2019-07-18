@@ -6,6 +6,8 @@ use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use App\posts;
 use App\country;
+use App\comment;
+use App\video;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(posts::class, function (Faker $faker) {
     return [
         'title' => $faker->name,
+        'body' => $faker->name,
         'user_id' => function()
         {
             return factory('App\User')->create()->id;
@@ -45,5 +48,21 @@ $factory->define(posts::class, function (Faker $faker) {
 $factory->define(country::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
+    ];
+});
+
+$factory->define(video::class, function (Faker $faker) {
+    return [
+        'title' => $faker->name,
+        'url' => $faker->name,
+    ];
+});
+
+
+
+$factory->define(comment::class, function (Faker $faker) {
+    return [
+        'commentable_type' => 'App\posts',
+        'commentable_id' => 1,
     ];
 });

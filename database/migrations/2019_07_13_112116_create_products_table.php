@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->integer('discount');
-            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
